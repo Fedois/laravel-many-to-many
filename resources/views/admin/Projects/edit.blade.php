@@ -20,7 +20,7 @@
                     <textarea class="form-control" id="content" name="content" rows="3">{{ $project->content }}</textarea>
                 </div>
 
-                              <div class="my-3">
+                <div class="my-3">
                     <label for="type_id" class="form-label">Tipo</label>
                     <select name="type_id" id="type_id">
                         <option value="">nessun tipo</option>
@@ -31,6 +31,23 @@
                             </option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="my-3">
+                    <label for="content" class="form-label">Tecnologie</label>
+                    <div>
+                        @foreach ($technologies as $technology)
+                            <input type="checkbox" 
+                            id="tech-{{ $technology->id }}" 
+                            name="technologies[]" 
+                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                            value="{{ $technology->id }}">
+                            
+                            <label for="tech-{{ $technology->id }}" class="pe-3">
+                                {{ $technology->name }}
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
 
                 @if ($project->img)

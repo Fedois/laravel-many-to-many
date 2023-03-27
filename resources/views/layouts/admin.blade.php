@@ -69,7 +69,7 @@
 
                                 <li class="nav-item m-1">
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.technologies.index' ? 'bg-secondary' : '' }}" href="{{route('admin.technologies.index')}}">
-                                        <i class="fa-solid fa-file-lines fa-lg fa-fw"></i> Technologies
+                                        <i class="fa-solid fa-microchip fa-lg fa-fw"></i> Technologies
                                     </a>
                                 </li>
                             </ul>

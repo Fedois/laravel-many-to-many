@@ -12,7 +12,7 @@
     <ul class="list-group">
         @foreach ($technologies as $technology)
             <li class="my-1 list-group-item list-group-item-action">
-                {{-- <a href="{{ route('admin.types.show', $technology->id) }}" class="text-dark text-decoration-none"> --}}
+                <a href="{{ route('admin.technologies.show', $technology->id) }}" class="text-dark text-decoration-none">
 
                     <span class="me-5">{{ $technology->id }}</span>  {{ $technology->name }}
 

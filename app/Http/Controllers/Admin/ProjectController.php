@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateProjectRequest;
 // models
 use App\Models\Project;
 use App\Models\type;
+use App\Models\Technology;
 
 // help
 use Illuminate\Support\Str;
@@ -38,8 +39,9 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -60,6 +62,12 @@ class ProjectController extends Controller
         $data['slug'] = Str::slug($data['title']);
 
         $newProject = Project::create($data);
+
+        if(array_key_exists('technologies', $data)){
+            foreach($data['technologies'] as $techId){
+                $newProject->technologies()->attach($techId);
+            }
+        }
 
         return redirect()->route('admin.projects.show', $newProject->id)->with('success', 'nuovo progetto aggiunto!');
     }
@@ -84,8 +92,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -116,6 +125,10 @@ class ProjectController extends Controller
         $data['slug'] = Str::slug($data['title']);
 
         $project->update($data);
+
+        if(array_key_exists('technologies', $data)){
+            $project->Technologies()->sync($data['technologies']);
+        }
 
         return redirect()->route('admin.projects.show', $project->id)->with('success', 'progetto modificato!');
 

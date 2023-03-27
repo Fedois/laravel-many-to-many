@@ -4,26 +4,26 @@
     <div class="container mt-3">
         @include('partials.success')
 
-        <a href="{{ route('admin.types.index') }}" class="btn btn-secondary mb-3">torna indietro</a>
+        <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary mb-3">torna indietro</a>
 
-        <h1>{{ $type->name }}</h1> 
-        <span>slug: {{ $type->slug }}</span>
+        <h1>{{ $technology->name }}</h1> 
+        <span>slug: {{ $technology->slug }}</span>
 
-        <h3 class="my-4">progetti totali: {{ $type->projects()->count() }}</h3>
+        {{-- <h3 class="my-4">progetti totali: {{ $type->projects()->count() }}</h3> --}}
 
-        <ul>
-            @if($type->projects)
-                @foreach ($type->projects as $project)
+        {{-- <ul>
+            @if($technology->projects)
+                @foreach ($technology->projects as $project)
                     <li>
                         <a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->title }}</a>
                     </li>
                 @endforeach
             @endif
-        </ul>
+        </ul> --}}
 
-        <a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-warning">Modifica</a>
+        {{-- <a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-warning">Modifica</a> --}}
 
-        <form action="{{ route('admin.types.destroy', $type->id) }}" class="d-inline-block" method="POST">
+        {{-- <form action="{{ route('admin.types.destroy', $type->id) }}" class="d-inline-block" method="POST">
             @csrf
             @method('DELETE')
             
@@ -51,5 +51,5 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> --}}
 @endsection

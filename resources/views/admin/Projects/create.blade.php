@@ -33,6 +33,29 @@
                 </div>
 
                 <div class="my-3">
+                    <label for="content" class="form-label">Tecnologie</label>
+                    <div>
+                        @foreach ($technologies as $technology)
+                            <input type="checkbox" 
+                            id="tech-{{ $technology->id }}" 
+                            name="technologies[]" 
+
+                            @if (old('technologies') && is_array(old('technologies')) && count(old('technologies')) > 0)
+                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                            @elseif($project->technologies->contains($technology->id))
+                                checked
+                            @endif
+                            
+                            value="{{ $technology->id }}">
+                            
+                            <label for="tech-{{ $technology->id }}" class="pe-3">
+                                {{ $technology->name }}
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="my-3">
                     <label for="img" class="form-label">Immagine</label>
                     <input type="file" class="form-control" id="img" name="img" placeholder="aggiungi immagine..." accept="image/*">
                 </div>
