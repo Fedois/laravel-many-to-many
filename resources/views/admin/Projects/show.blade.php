@@ -22,8 +22,16 @@
                     </strong>
                 </p>
             @else
-                <p>progetto di tipo: nessun tipo specificato</p>
+                <p>nessun tipo specificato</p>
             @endif
+
+            <p>tecnologia usata:
+                @foreach ($project->Technologies as $technology)
+                <strong>
+                    <a href="{{ route('admin.technologies.show', $technology->id) }}">{{ $technology->name }} ,</a>
+                </strong>
+                @endforeach
+            </p>
         </div>
 
         <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning my-1">Modifica</a>
