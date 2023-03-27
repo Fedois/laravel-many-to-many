@@ -129,6 +129,9 @@ class ProjectController extends Controller
         if(array_key_exists('technologies', $data)){
             $project->Technologies()->sync($data['technologies']);
         }
+        else{
+            $project->Technologies()->sync([]);
+        }
 
         return redirect()->route('admin.projects.show', $project->id)->with('success', 'progetto modificato!');
 

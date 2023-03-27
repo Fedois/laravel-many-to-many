@@ -40,7 +40,12 @@
                             <input type="checkbox" 
                             id="tech-{{ $technology->id }}" 
                             name="technologies[]" 
-                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+
+                            @if (old('technologies') && is_array(old('technologies')) && count(old('technologies')) > 0)
+                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                            @elseif($project->technologies->contains($technology))
+                                checked
+                            @endif
                             value="{{ $technology->id }}">
                             
                             <label for="tech-{{ $technology->id }}" class="pe-3">
