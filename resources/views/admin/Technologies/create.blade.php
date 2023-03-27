@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <a href="{{ route('admin.types.index') }}" class="btn btn-secondary my-1">Torna indietro</a>
+        <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary my-1">Torna indietro</a>
 
-            <form action="{{ route('admin.types.store') }}" method="POST">
+            <form action="{{ route('admin.technologies.store') }}" method="POST">
                 @csrf
 
                @include('partials.errors')

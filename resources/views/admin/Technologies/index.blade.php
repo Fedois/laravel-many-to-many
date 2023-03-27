@@ -3,9 +3,9 @@
 @section('content')
 <div class="container all-projects">
     
-    <h1 class="my-3">Tutti i tipi di progetto</h1>
+    <h1 class="my-3">Tutte le tecnologie</h1>
 
-    {{-- <a href="{{ route('admin.types.create') }}" class="btn btn-primary my-2">Nuovo Tipo</a> --}}
+    <a href="{{ route('admin.technologies.create') }}" class="btn btn-primary my-2">Nuova tecnologia</a>
 
     @include('partials.success')
 
