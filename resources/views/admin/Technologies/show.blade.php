@@ -21,18 +21,18 @@
             @endif
         </ul>
 
-        {{-- <a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-warning">Modifica</a> --}}
+        <a href="{{ route('admin.technologies.edit', $technology->id) }}" class="btn btn-warning">Modifica</a>
 
-        {{-- <form action="{{ route('admin.types.destroy', $type->id) }}" class="d-inline-block" method="POST"> --}}
-            {{-- @csrf
+        <form action="{{ route('admin.technologies.destroy', $technology->id) }}" class="d-inline-block" method="POST">
+            @csrf
             @method('DELETE')
             
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 elimina
-            </button> --}}
+            </button>
             
-            {{-- <!-- Modal -->
+            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -51,5 +51,5 @@
                 </div>
             </div>
         </form>
-    </div> --}}
+    </div>
 @endsection
